@@ -1,13 +1,4 @@
 /* =====================================
-============== Variables ===============
-======================================== */
-
-:root {
-  --color-neutral-darkest: #000;
-  --color-white: #fff;
-}
-
-/* =====================================
 ================ Base ==================
 ======================================== */
 
@@ -15,24 +6,18 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  font-family: var(--font-roboto), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  background-color: var(--color-white);
+  background-color: #ffffff;
 
-  color: var(--color-neutral-darkest);
-  line-height: 150%;
+  color: #1d1e21;
+  line-height: 125%;
 
-  transition: all 250ms ease;
-
-  &.no-scroll {
+  &.noScroll {
     overflow: hidden;
   }
 }
@@ -106,18 +91,6 @@ fieldset {
 input {
   font-family: inherit;
 }
-
-/* input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
-  -webkit-text-fill-color: var(--color-neutral-darkest);
-  transition: all 5000s ease-in-out 0s;
-  caret-color: var(--color-neutral-darkest);
-} */
 
 /* =====================================
 ============== Container ===============

@@ -1,10 +1,16 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import Logo from "../Logo/Logo";
 import css from "./Header.module.css";
 
-export default async function Header() {
+export default function Header() {
+  const pathname = usePathname();
+
   return (
     <header className={css.header}>
       <div className="container">
-        <h2>Header</h2>
+        <Logo color={pathname === "/" ? "green" : "white"} />
       </div>
     </header>
   );

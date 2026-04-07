@@ -11,6 +11,7 @@ export default function MenuButton({ color, openMenu }: Props) {
     <button
       type="button"
       aria-label="Open menu"
+      onClick={openMenu}
       className={clsx(css.menuBtn, color === "white" && css.white)}
     >
       <svg width={32} height={26}>

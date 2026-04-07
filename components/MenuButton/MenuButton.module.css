@@ -1,0 +1,31 @@
+.menuBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  height: 40px;
+
+  & svg {
+    fill: none;
+    stroke: #59b17a;
+  }
+
+  &.white svg {
+    stroke: #fff;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .menuBtn {
+    height: 44px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .menuBtn {
+    display: none;
+  }
+}

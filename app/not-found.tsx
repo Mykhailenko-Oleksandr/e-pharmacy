@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import css from "./Home.module.css";
+import css from "./NotFoundError.module.css";
 
 export const metadata: Metadata = {
   title: "Not Found",

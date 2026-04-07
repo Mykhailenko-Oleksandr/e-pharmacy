@@ -8,6 +8,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import AuthButtonsBox from "../AuthButtonsBox/AuthButtonsBox";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import Navigation from "../Navigation/Navigation";
 
 export default function Header() {
   const [burgerMenu, setBurgerMenu] = useState(false);
@@ -18,6 +19,8 @@ export default function Header() {
       <header className={clsx(css.header, pathname === "/" && css.green)}>
         <div className={clsx("container", css.headerContainer)}>
           <Logo color={pathname === "/" ? "white" : "green"} />
+
+          <Navigation location="header" />
 
           <AuthButtonsBox
             location="header"

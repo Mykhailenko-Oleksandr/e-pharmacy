@@ -4,6 +4,7 @@ import clsx from "clsx";
 import css from "./BurgerMenu.module.css";
 import { MouseEvent, useEffect } from "react";
 import AuthButtonsBox from "../AuthButtonsBox/AuthButtonsBox";
+import Navigation from "../Navigation/Navigation";
 
 interface Props {
   isOpen: boolean;
@@ -67,6 +68,8 @@ export default function BurgerMenu({
             <use href="/sprite.svg#close"></use>
           </svg>
         </button>
+
+        <Navigation location="menu" />
 
         <AuthButtonsBox location="menu" color="white" />
       </div>

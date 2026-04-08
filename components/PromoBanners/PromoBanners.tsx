@@ -10,7 +10,7 @@ export default function PromoBanners() {
           <li className={css.item}>
             <div className={css.topBox}>
               <div className={css.countBox}>1</div>
-              <h2 className={css.title}>Huge Sale</h2>
+              <h3 className={css.title}>Huge Sale</h3>
             </div>
 
             <div className={css.bottomBox}>
@@ -24,7 +24,7 @@ export default function PromoBanners() {
           <li className={css.item}>
             <div className={css.topBox}>
               <div className={css.countBox}>2</div>
-              <h2 className={css.title}>Secure delivery</h2>
+              <h3 className={css.title}>Secure delivery</h3>
             </div>
 
             <div className={clsx(css.bottomBox, css.centerItem)}>
@@ -38,7 +38,7 @@ export default function PromoBanners() {
           <li className={css.item}>
             <div className={css.topBox}>
               <div className={css.countBox}>3</div>
-              <h2 className={css.title}>Off</h2>
+              <h3 className={css.title}>Off</h3>
             </div>
 
             <div className={css.bottomBox}>

@@ -1,0 +1,53 @@
+.section {
+  padding: 40px 0;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 114%;
+  text-align: center;
+  color: #1d1e21;
+  margin-bottom: 14px;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 129%;
+  text-align: center;
+  color: #93939a;
+  margin-bottom: 64px;
+}
+
+@media only screen and (min-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .title {
+    font-size: 40px;
+    line-height: 120%;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 125%;
+    margin-bottom: 88px;
+  }
+
+  .list {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    padding: 0 119px;
+  }
+
+  .list {
+    gap: 28px;
+  }
+}

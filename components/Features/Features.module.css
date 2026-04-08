@@ -57,6 +57,15 @@
   .text {
     line-height: 125%;
   }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50.8%);
+    }
+  }
 }
 
 @media only screen and (min-width: 1440px) {

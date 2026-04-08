@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero/Hero";
-import css from "./Home.module.css";
 import PromoBanners from "@/components/PromoBanners/PromoBanners";
 import MedicineStores from "@/components/MedicineStores/MedicineStores";
+import PharmacyPromo from "@/components/PharmacyPromo/PharmacyPromo";
 
 import { STORES } from "../../temporaryFiles/stores";
 
@@ -11,6 +11,7 @@ export default function Home() {
       <Hero />
       <PromoBanners />
       <MedicineStores stores={STORES} />
+      <PharmacyPromo />
     </>
   );
 }

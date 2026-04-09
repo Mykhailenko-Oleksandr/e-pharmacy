@@ -69,9 +69,9 @@ export default function BurgerMenu({
           </svg>
         </button>
 
-        <Navigation location="menu" />
+        <Navigation location="menu" closeMenu={onClose} />
 
-        <AuthButtonsBox location="menu" color="white" />
+        <AuthButtonsBox location="menu" color="white" closeMenu={onClose} />
       </div>
     </div>
   );

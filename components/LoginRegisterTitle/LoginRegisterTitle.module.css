@@ -1,0 +1,40 @@
+.box {
+  position: relative;
+  width: fit-content;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 121%;
+  color: #1d1e21;
+
+  & span {
+    color: #59b17a;
+  }
+}
+
+.img {
+  position: absolute;
+  top: -56px;
+  right: 20px;
+
+  width: 95px;
+  height: 93px;
+}
+
+@media only screen and (min-width: 768px) {
+  .title {
+    font-size: 54px;
+    line-height: 111%;
+    max-width: 614px;
+  }
+
+  .img {
+    top: -107px;
+    right: 19px;
+
+    width: 179px;
+    height: 175px;
+  }
+}

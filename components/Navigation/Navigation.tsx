@@ -7,9 +7,10 @@ import clsx from "clsx";
 
 interface Props {
   location: "header" | "menu";
+  closeMenu?: () => void;
 }
 
-export default function Navigation({ location }: Props) {
+export default function Navigation({ location, closeMenu }: Props) {
   const pathname = usePathname();
 
   return (
@@ -18,6 +19,7 @@ export default function Navigation({ location }: Props) {
         <li className={css.item}>
           <Link
             href="/"
+            onClick={closeMenu}
             className={clsx(css.link, pathname === "/" && css.currentPage)}
           >
             Home
@@ -26,6 +28,7 @@ export default function Navigation({ location }: Props) {
         <li className={css.item}>
           <Link
             href="/medicine-store"
+            onClick={closeMenu}
             className={clsx(
               css.link,
               pathname === "/medicine-store" && css.currentPage,
@@ -37,6 +40,7 @@ export default function Navigation({ location }: Props) {
         <li className={css.item}>
           <Link
             href="/medicine "
+            onClick={closeMenu}
             className={clsx(
               css.link,
               pathname === "/medicine" && css.currentPage,

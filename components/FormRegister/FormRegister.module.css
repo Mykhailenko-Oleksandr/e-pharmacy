@@ -11,65 +11,11 @@
 .topInputsBox {
   transition: margin-bottom 300ms ease;
   margin-bottom: 10px;
-}
 
-/* .topInputsBox:has(.inputBoxError:last-child) {
-  margin-bottom: 15px;
-}
-
-.inputBox:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-.inputBox {
-  width: 100%;
-  position: relative;
-  transition: margin-bottom 300ms ease;
-}
-
-.inputBox.inputBoxError:not(:last-child) {
-  margin-bottom: 15px;
-}
-
-.input {
-  border: 1px solid rgba(29, 30, 33, 0.1);
-  border-radius: 60px;
-  background-color: #fff;
-  width: 100%;
-  padding: 12px 17px;
-  outline: none;
-
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 150%;
-  color: #1d1e21;
-
-  transition: border-color 300ms ease;
-
-  &::placeholder {
-    color: rgba(29, 30, 33, 0.4);
-  }
-
-  &:hover,
-  &:focus {
-    border-color: #59b17a;
-  }
-
-  &.inputError {
-    border-color: #e85050;
+  &.emailError {
+    margin-bottom: 15px;
   }
 }
-
-.errorMessage {
-  position: absolute;
-  left: 15px;
-  bottom: -15px;
-
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 150%;
-  color: #e85050;
-} */
 
 .bottomBox {
   width: 100%;
@@ -96,8 +42,8 @@
     max-width: 574px;
     margin-bottom: 62px;
 
-    &:has(.topInputsBox .inputBox.inputBoxError) {
-      margin-bottom: 52px;
+    &.allInputsBoxError {
+      margin-bottom: 57px;
     }
   }
 
@@ -106,21 +52,17 @@
     align-items: start;
     gap: 14px;
     margin-bottom: 14px;
+
+    &.emailError,
+    &.nameError {
+      margin-bottom: 19px;
+    }
   }
 
   .bottomInputsBox {
     display: flex;
     align-items: start;
     gap: 14px;
-  }
-
-  .inputBox:not(:last-child),
-  .inputBox.inputBoxError:not(:last-child) {
-    margin-bottom: unset;
-  }
-
-  .topInputsBox:has(.inputBox.inputBoxError) {
-    margin-bottom: 25px;
   }
 
   .bottomBox {

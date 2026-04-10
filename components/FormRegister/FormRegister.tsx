@@ -4,10 +4,10 @@ import css from "./FormRegister.module.css";
 import { SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import clsx from "clsx";
 import SubmitButton from "../SubmitButton/SubmitButton";
 import Link from "next/link";
 import InputField from "../InputField/InputField";
+import clsx from "clsx";
 
 interface FormData {
   name: string;
@@ -52,12 +52,24 @@ export default function FormRegister() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
-      <fieldset className={css.allInputsBox}>
-        <div className={css.topInputsBox}>
+      <fieldset
+        className={clsx(
+          css.allInputsBox,
+          (errors.name || errors.email) && css.allInputsBoxError,
+        )}
+      >
+        <div
+          className={clsx(
+            css.topInputsBox,
+            errors.email && css.emailError,
+            errors.name && css.nameError,
+          )}
+        >
           <InputField
             placeholder="User Name"
             type="text"
             error={errors.name}
+            marginBottomUnsetTablet
             {...register("name")}
           />
 
@@ -65,6 +77,7 @@ export default function FormRegister() {
             placeholder="Email address"
             type="email"
             error={errors.email}
+            marginBottomUnsetTablet
             {...register("email")}
           />
         </div>
@@ -73,12 +86,14 @@ export default function FormRegister() {
             placeholder="Phone number"
             type="tel"
             error={errors.phone}
+            marginBottomUnsetTablet
             {...register("phone")}
           />
           <InputField
             placeholder="Password"
             type="password"
             error={errors.password}
+            marginBottomUnsetTablet
             {...register("password")}
           />
         </div>

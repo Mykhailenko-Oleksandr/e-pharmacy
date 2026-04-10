@@ -1,0 +1,42 @@
+.inputsBox {
+  margin-bottom: 128px;
+  transition: margin-bottom 300ms ease;
+}
+
+.inputsBoxError {
+  margin-bottom: 123px;
+}
+
+.link {
+  display: block;
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: rgba(29, 30, 33, 0.4);
+
+  transition: color 300ms ease;
+
+  &:hover,
+  &:focus {
+    color: rgba(29, 30, 33, 0.8);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .form {
+    max-width: 323px;
+  }
+
+  .inputsBox {
+    margin-bottom: 62px;
+  }
+
+  .inputsBoxError {
+    margin-bottom: 57px;
+  }
+
+  .bottomBox {
+    width: fit-content;
+  }
+}

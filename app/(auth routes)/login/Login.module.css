@@ -1,0 +1,38 @@
+.section {
+  padding: 25px 0 191px;
+}
+
+.contentBox {
+  padding-top: 106px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .section {
+    padding: 28px 0 250px;
+  }
+
+  .contentBox {
+    padding-top: 168px;
+    gap: 54px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .section {
+    padding-bottom: 262px;
+  }
+
+  .container {
+    padding: 0 253px 0 100px;
+  }
+
+  .contentBox {
+    padding-top: 226px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

@@ -1,7 +1,3 @@
-.topInputsBox:has(.inputBoxError:last-child) {
-  margin-bottom: 15px;
-}
-
 .inputBox:not(:last-child) {
   margin-bottom: 10px;
 }
@@ -57,8 +53,16 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .inputBox:not(:last-child),
+  .inputBox:not(:last-child) {
+    margin-bottom: 14px;
+  }
+
   .inputBox.inputBoxError:not(:last-child) {
+    margin-bottom: 19px;
+  }
+
+  .inputBox.marginUnset,
+  .inputBox.marginUnset.inputBoxError {
     margin-bottom: unset;
   }
 }

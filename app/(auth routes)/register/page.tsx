@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import css from "./Register.module.css";
+import clsx from "clsx";
 import Logo from "@/components/Logo/Logo";
 import LoginRegisterTitle from "@/components/LoginRegisterTitle/LoginRegisterTitle";
 import FormRegister from "@/components/FormRegister/FormRegister";

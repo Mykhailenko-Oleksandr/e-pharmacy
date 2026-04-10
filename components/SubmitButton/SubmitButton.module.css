@@ -12,6 +12,12 @@
   color: #fff;
 
   margin-bottom: 14px;
+  transition: background-color 300ms ease;
+
+  &:hover,
+  &:focus {
+    background-color: #3f945f;
+  }
 }
 
 @media only screen and (min-width: 768px) {

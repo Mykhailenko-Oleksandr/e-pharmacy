@@ -7,16 +7,25 @@ interface InputFieldProps {
   type?: string;
   placeholder: string;
   error?: FieldError;
+  marginBottomUnsetTablet?: boolean;
 }
 
 export default function InputField({
   type = "text",
   placeholder,
   error,
+  marginBottomUnsetTablet,
+
   ...props
 }: InputFieldProps) {
   return (
-    <div className={clsx(css.inputBox, error && css.inputBoxError)}>
+    <div
+      className={clsx(
+        css.inputBox,
+        error && css.inputBoxError,
+        marginBottomUnsetTablet && css.marginUnset,
+      )}
+    >
       <input
         className={clsx(css.input, error && css.inputError)}
         placeholder={placeholder}

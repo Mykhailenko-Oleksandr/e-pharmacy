@@ -1,0 +1,95 @@
+"use client";
+
+import css from "./FormRegister.module.css";
+import { SubmitHandler, useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import clsx from "clsx";
+import SubmitButton from "../SubmitButton/SubmitButton";
+import Link from "next/link";
+import InputField from "../InputField/InputField";
+
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  password: string;
+}
+
+const schema = yup
+  .object({
+    name: yup
+      .string()
+      .min(3, "Name must be at least 3 characters long")
+      .required("Please enter your name"),
+    email: yup
+      .string()
+      .email("Please enter a valid email address")
+      .required("Email is required"),
+    phone: yup
+      .string()
+      .matches(/^\+?[0-9]{7,15}$/, "Please enter a valid phone number")
+      .required("Phone number is required"),
+    password: yup
+      .string()
+      .min(7, "Password must be at least 7 characters long")
+      .required("Password is required"),
+  })
+  .required();
+
+export default function FormRegister() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    console.log(data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
+      <fieldset className={css.allInputsBox}>
+        <div className={css.topInputsBox}>
+          <InputField
+            placeholder="User Name"
+            type="text"
+            error={errors.name}
+            {...register("name")}
+          />
+
+          <InputField
+            placeholder="Email address"
+            type="email"
+            error={errors.email}
+            {...register("email")}
+          />
+        </div>
+        <div className={css.bottomInputsBox}>
+          <InputField
+            placeholder="Phone number"
+            type="tel"
+            error={errors.phone}
+            {...register("phone")}
+          />
+          <InputField
+            placeholder="Password"
+            type="password"
+            error={errors.password}
+            {...register("password")}
+          />
+        </div>
+      </fieldset>
+
+      <div className={css.bottomBox}>
+        <SubmitButton text="Register" register />
+        <Link href="/login" className={css.link}>
+          Already have an account?
+        </Link>
+      </div>
+    </form>
+  );
+}

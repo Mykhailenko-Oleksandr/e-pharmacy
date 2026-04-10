@@ -1,0 +1,24 @@
+.btn {
+  display: block;
+  border: none;
+  border-radius: 60px;
+  padding: 13px;
+  width: 100%;
+  background-color: #59b17a;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #fff;
+
+  margin-bottom: 14px;
+}
+
+@media only screen and (min-width: 768px) {
+  .btn.registerBtn {
+    width: 280px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+}

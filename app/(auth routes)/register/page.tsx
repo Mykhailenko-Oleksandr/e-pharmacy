@@ -2,6 +2,7 @@ import clsx from "clsx";
 import css from "./Register.module.css";
 import Logo from "@/components/Logo/Logo";
 import LoginRegisterTitle from "@/components/LoginRegisterTitle/LoginRegisterTitle";
+import FormRegister from "@/components/FormRegister/FormRegister";
 
 export default function Register() {
   return (
@@ -10,6 +11,7 @@ export default function Register() {
         <Logo color="green" />
         <div className={css.contentBox}>
           <LoginRegisterTitle />
+          <FormRegister />
         </div>
       </div>
     </section>

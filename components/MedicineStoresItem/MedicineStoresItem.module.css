@@ -1,41 +1,8 @@
-.section {
-  padding: 40px 0;
-}
-
-.title {
-  margin: 0 auto;
-  max-width: 291px;
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 114%;
-  text-align: center;
-  color: #1d1e21;
-  margin-bottom: 14px;
-}
-
-.description {
-  font-size: 14px;
-  line-height: 129%;
-  text-align: center;
-  color: #93939a;
-  margin-bottom: 40px;
-}
-
-.massageText {
-  text-align: center;
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .item {
   width: 100%;
 }
 
-.link {
+.linkCard {
   position: relative;
   display: block;
   border: 1px solid #f1f1f1;
@@ -137,74 +104,64 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .section {
-    padding: 60px 0;
-  }
-
-  .title {
-    max-width: unset;
-    font-size: 40px;
-    line-height: 120%;
-  }
-
-  .description {
-    font-size: 16px;
-    line-height: 125%;
-    margin-bottom: 64px;
-  }
-
-  .list {
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
   .item {
     width: unset;
     flex-basis: calc((100% - 16px) / 2);
-  }
 
-  .link {
-    padding: 39px 32px 45px 39px;
-  }
-
-  .topBox {
-    margin-bottom: 34px;
+    position: relative;
+    border: 1px solid #f1f1f1;
+    border-radius: 27px;
+    padding: 39px;
+    background-color: #e7f1ed;
+    overflow: hidden;
   }
 
   .titleItem {
     font-size: 20px;
+    margin-bottom: 20px;
   }
 
   .contactsBox:not(:last-of-type) {
     margin-bottom: 14px;
   }
 
+  .centerBox {
+    margin-bottom: 36px;
+  }
+
   .infoText {
     font-size: 16px;
     line-height: 125%;
   }
-}
 
-@media only screen and (min-width: 1440px) {
-  .container {
-    padding: 0 96px;
-  }
-
-  .list {
-    gap: 36px;
-  }
-
-  .item {
-    flex-basis: calc((100% - 72px) / 3);
+  .bottomBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .link {
-    padding: 39px 39px 65px 39px;
-  }
+    border-radius: 24px;
+    padding: 10px 16px;
+    background-color: #59b17a;
 
-  .topBox {
-    margin-bottom: 14px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    text-align: center;
+    color: #fff;
+
+    transition: background-color 300ms ease;
+
+    &:hover,
+    &:focus {
+      background-color: #3f945f;
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .item {
+    flex-basis: calc((100% - 40px) / 3);
   }
 }

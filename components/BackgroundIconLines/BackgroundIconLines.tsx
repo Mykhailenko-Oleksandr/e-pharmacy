@@ -2,12 +2,15 @@ import clsx from "clsx";
 import css from "./BackgroundIconLines.module.css";
 
 interface Props {
-  size?: "small" | "medium" | "large";
+  size?: "medium" | "large";
+  isTop?: boolean;
 }
 
-export default function BackgroundIconLines({ size = "medium" }: Props) {
+export default function BackgroundIconLines({ size = "medium", isTop }: Props) {
   return (
-    <div className={clsx(css.box, size === "large" && css.large)}>
+    <div
+      className={clsx(css.box, size === "large" && css.large, isTop && css.top)}
+    >
       <svg
         width={size === "large" ? 222 : 167}
         height={size === "large" ? 47 : 35}

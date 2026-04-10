@@ -46,6 +46,12 @@
   .box {
     bottom: 72px;
     right: 116px;
+
+    &.top {
+      bottom: unset;
+      top: 29px;
+      right: 136px;
+    }
   }
 
   .icon {

@@ -15,7 +15,7 @@ export const STORES: Shop[] = [
   },
   {
     _id: "123www34qwe",
-    shopName: "Tremblay and Schiller",
+    shopName: "Tremblay and Schiller ",
     ownerName: "Petro",
     email: "test.mail.com",
     phone: "717-24-2429",

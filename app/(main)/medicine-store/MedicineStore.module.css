@@ -1,0 +1,38 @@
+.section {
+  padding: 37px 0 80px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 114%;
+  color: #1d1e21;
+  margin-bottom: 40px;
+}
+
+.noStores {
+  font-size: 14px;
+  line-height: 129%;
+  text-align: center;
+  color: #93939a;
+}
+
+@media only screen and (min-width: 768px) {
+  .section {
+    padding: 52px 0 120px;
+  }
+
+  .title {
+    margin-bottom: 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .section {
+    padding-top: 70px;
+  }
+
+  .title {
+    margin-bottom: 40px;
+  }
+}

@@ -3,6 +3,7 @@ import css from "./MedicineStores.module.css";
 import clsx from "clsx";
 import Ellipsis from "../Ellipsis/Ellipsis";
 import Link from "next/link";
+import BackgroundIconLines from "../BackgroundIconLines/BackgroundIconLines";
 
 interface Props {
   stores: Shop[];
@@ -23,6 +24,8 @@ export default function MedicineStores({ stores }: Props) {
               return (
                 <li className={css.item} key={store._id}>
                   <Link href={`/shop/${store._id}`} className={css.link}>
+                    <BackgroundIconLines />
+
                     <div className={css.topBox}>
                       <h3 className={css.titleItem}>
                         <Ellipsis text={store.shopName} length={12} />
@@ -58,28 +61,6 @@ export default function MedicineStores({ stores }: Props) {
                       </svg>
                       <p className={css.infoText}>{store.phone}</p>
                     </div>
-
-                    <svg
-                      width={167}
-                      height={35}
-                      className={clsx(css.backgroundIcon, css.top)}
-                    >
-                      <use href="/sprite.svg#rectangle"></use>
-                    </svg>
-                    <svg
-                      width={167}
-                      height={35}
-                      className={clsx(css.backgroundIcon, css.center)}
-                    >
-                      <use href="/sprite.svg#rectangle"></use>
-                    </svg>
-                    <svg
-                      width={167}
-                      height={35}
-                      className={clsx(css.backgroundIcon, css.bottom)}
-                    >
-                      <use href="/sprite.svg#rectangle"></use>
-                    </svg>
                   </Link>
                 </li>
               );

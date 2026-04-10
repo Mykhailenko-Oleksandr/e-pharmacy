@@ -129,27 +129,6 @@
   stroke: #59b17a;
 }
 
-.backgroundIcon {
-  position: absolute;
-  fill: rgba(89, 177, 122, 0.08);
-  transform: rotate(22deg);
-
-  &.top {
-    top: 117px;
-    right: -104px;
-  }
-
-  &.center {
-    top: 140px;
-    right: -41px;
-  }
-
-  &.bottom {
-    top: 193px;
-    right: -55px;
-  }
-}
-
 @media only screen and (min-width: 768px) {
   .section {
     padding: 60px 0;
@@ -199,26 +178,6 @@
     font-size: 16px;
     line-height: 125%;
   }
-
-  .backgroundIcon {
-    width: 198px;
-    height: 42px;
-
-    &.top {
-      top: 130px;
-      right: -157px;
-    }
-
-    &.center {
-      top: 157px;
-      right: -83px;
-    }
-
-    &.bottom {
-      top: 220px;
-      right: -99px;
-    }
-  }
 }
 
 @media only screen and (min-width: 1440px) {
@@ -240,19 +199,5 @@
 
   .topBox {
     margin-bottom: 14px;
-  }
-
-  .backgroundIcon {
-    &.top {
-      right: -109px;
-    }
-
-    &.center {
-      right: -35px;
-    }
-
-    &.bottom {
-      right: -51px;
-    }
   }
 }

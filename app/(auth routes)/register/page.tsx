@@ -3,6 +3,7 @@ import clsx from "clsx";
 import Logo from "@/components/Logo/Logo";
 import LoginRegisterTitle from "@/components/LoginRegisterTitle/LoginRegisterTitle";
 import FormRegister from "@/components/FormRegister/FormRegister";
+import BackgroundIconLines from "@/components/BackgroundIconLines/BackgroundIconLines";
 
 export default function Register() {
   return (
@@ -13,6 +14,7 @@ export default function Register() {
           <LoginRegisterTitle />
           <FormRegister />
         </div>
+        <BackgroundIconLines size="large" />
       </div>
     </section>
   );

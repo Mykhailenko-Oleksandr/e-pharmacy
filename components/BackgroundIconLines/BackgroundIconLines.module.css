@@ -1,0 +1,106 @@
+.box {
+  position: absolute;
+  bottom: 59px;
+  right: 126px;
+}
+
+.icon {
+  position: absolute;
+  fill: rgba(89, 177, 122, 0.08);
+  transform: rotate(22deg);
+
+  &.top {
+    top: -23px;
+    left: 62px;
+  }
+
+  &.center {
+    top: 0;
+    left: 0;
+  }
+
+  &.bottom {
+    top: 53px;
+    left: 13px;
+  }
+}
+
+.box.large {
+  bottom: -118px;
+  right: 194px;
+
+  & .icon {
+    &.top {
+      top: -30px;
+      left: 83px;
+    }
+
+    &.bottom {
+      top: 71px;
+      left: 18px;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .box {
+    bottom: 72px;
+    right: 116px;
+  }
+
+  .icon {
+    width: 198px;
+    height: 42px;
+
+    &.top {
+      top: -27px;
+      left: 74px;
+    }
+
+    &.bottom {
+      top: 63px;
+      left: 16px;
+    }
+  }
+
+  .box.large {
+    bottom: -91px;
+    right: 277px;
+
+    & .icon {
+      width: 336px;
+      height: 71px;
+
+      &.top {
+        top: -46px;
+        left: 126px;
+      }
+
+      &.bottom {
+        top: 107px;
+        left: 27px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .box {
+    right: 164px;
+  }
+
+  .icon {
+    &.top {
+      right: -109px;
+    }
+
+    &.bottom {
+      right: -51px;
+    }
+  }
+
+  .box.large {
+    bottom: -117px;
+    right: 279px;
+  }
+}

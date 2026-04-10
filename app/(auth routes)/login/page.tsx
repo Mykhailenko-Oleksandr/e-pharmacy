@@ -3,6 +3,7 @@ import css from "./Login.module.css";
 import Logo from "@/components/Logo/Logo";
 import LoginRegisterTitle from "@/components/LoginRegisterTitle/LoginRegisterTitle";
 import FormLogin from "@/components/FormLogin/FormLogin";
+import BackgroundIconLines from "@/components/BackgroundIconLines/BackgroundIconLines";
 
 export default function Login() {
   return (
@@ -13,6 +14,7 @@ export default function Login() {
           <LoginRegisterTitle />
           <FormLogin />
         </div>
+        <BackgroundIconLines size="large" />
       </div>
     </section>
   );

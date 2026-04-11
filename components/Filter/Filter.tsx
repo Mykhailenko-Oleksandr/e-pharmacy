@@ -3,18 +3,25 @@
 import { useState } from "react";
 import CustomSelect from "../CustomSelect/CustomSelect";
 import css from "./Filter.module.css";
+import SearchInput from "../SearchInput/SearchInput";
 
 interface Props {
   categories: string[];
   changeCategory: (category: string) => void;
+  changeSearch: (search: string) => void;
 }
 
-export default function Filter({ categories, changeCategory }: Props) {
+export default function Filter({
+  categories,
+  changeCategory,
+  changeSearch,
+}: Props) {
   const [category, setCategory] = useState("");
   const [search, setSearch] = useState("");
 
   function handleApplyFilters() {
     changeCategory(category);
+    changeSearch(search);
   }
 
   return (
@@ -23,6 +30,11 @@ export default function Filter({ categories, changeCategory }: Props) {
         placeholder="Product category"
         onChange={(value) => setCategory(value)}
         values={categories}
+      />
+
+      <SearchInput
+        placeholder="Search medicine"
+        onChange={(value) => setSearch(value)}
       />
 
       <button type="button" className={css.btn} onClick={handleApplyFilters}>

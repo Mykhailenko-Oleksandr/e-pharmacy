@@ -15,6 +15,12 @@
   text-transform: capitalize;
 
   min-height: unset !important;
+
+  transition: border-color 300ms ease !important;
+
+  &:hover {
+    border-color: #59b17a !important;
+  }
 }
 
 :global(customSelect__placeholder) {
@@ -23,6 +29,7 @@
 
 :global(.customSelect__control--is-focused) {
   box-shadow: none !important;
+  border-color: #59b17a !important;
 }
 
 :global(.customSelect__value-container) {

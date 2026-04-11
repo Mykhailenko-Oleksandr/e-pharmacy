@@ -26,7 +26,11 @@ export default function MedicineClient({ categories, initialSearch }: Props) {
       <div className="container">
         <h2 className={css.title}>Medicine</h2>
 
-        <Filter categories={categories} changeCategory={setCategory} />
+        <Filter
+          categories={categories}
+          changeCategory={setCategory}
+          changeSearch={setSearch}
+        />
       </div>
     </section>
   );

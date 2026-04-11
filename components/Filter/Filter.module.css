@@ -8,7 +8,9 @@
 .btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  align-self: flex-start;
 
   border: none;
   border-radius: 60px;
@@ -19,6 +21,8 @@
   font-size: 14px;
   line-height: 129%;
   color: #fff;
+
+  transition: background-color 300ms ease;
 
   & svg {
     fill: none;

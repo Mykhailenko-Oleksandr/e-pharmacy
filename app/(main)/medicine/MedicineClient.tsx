@@ -24,28 +24,34 @@ export default function MedicineClient({ categories, initialSearch }: Props) {
     searchParams.get("discount") || initialSearch,
   );
   const [page, setPage] = useState(1);
+  const [isModalLogin, setIsModalLogin] = useState(false);
+  const [isModalRegister, setIsModalRegister] = useState(false);
 
   return (
-    <section className={css.section}>
-      <div className="container">
-        <h2 className={css.title}>Medicine</h2>
+    <>
+      <section className={css.section}>
+        <div className="container">
+          <h2 className={css.title}>Medicine</h2>
 
-        <Filter
-          categories={categories}
-          changeCategory={setCategory}
-          changeSearch={setSearch}
-          resetDiscount={() => {
-            setDiscount("");
-            const params = new URLSearchParams(searchParams.toString());
-            params.delete("discount");
-            router.replace(`/medicine?${params.toString()}`);
-          }}
-        />
+          <Filter
+            categories={categories}
+            changeCategory={setCategory}
+            changeSearch={setSearch}
+            resetDiscount={() => {
+              setDiscount("");
+              const params = new URLSearchParams(searchParams.toString());
+              params.delete("discount");
+              router.replace(`/medicine?${params.toString()}`);
+            }}
+          />
 
-        <ProductsList products={PRODUCTS} />
+          <ProductsList products={PRODUCTS} />
 
-        <Pagination totalPages={5} page={page} updatePage={setPage} />
-      </div>
-    </section>
+          <Pagination totalPages={5} page={page} updatePage={setPage} />
+        </div>
+      </section>
+
+      {/* {isModalRegister &&} */}
+    </>
   );
 }

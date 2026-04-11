@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import { PRODUCTS } from "@/temporaryFiles/products";
 import ProductsList from "@/components/ProductsList/ProductsList";
+import Pagination from "@/components/Pagination/Pagination";
 
 interface Props {
   categories: string[];
@@ -22,6 +23,7 @@ export default function MedicineClient({ categories, initialSearch }: Props) {
   const [discount, setDiscount] = useState(
     searchParams.get("discount") || initialSearch,
   );
+  const [page, setPage] = useState(1);
 
   return (
     <section className={css.section}>
@@ -40,7 +42,9 @@ export default function MedicineClient({ categories, initialSearch }: Props) {
           }}
         />
 
-        <ProductsList products={PRODUCTS}/>
+        <ProductsList products={PRODUCTS} />
+
+        <Pagination totalPages={5} page={page} updatePage={setPage} />
       </div>
     </section>
   );

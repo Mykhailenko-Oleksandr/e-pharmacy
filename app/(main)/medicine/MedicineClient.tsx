@@ -9,6 +9,7 @@ import { PRODUCTS } from "@/temporaryFiles/products";
 import ProductsList from "@/components/ProductsList/ProductsList";
 import Pagination from "@/components/Pagination/Pagination";
 import ModalLogin from "@/components/ModalLogin/ModalLogin";
+import ModalRegister from "@/components/ModalRegister/ModalRegister";
 
 interface Props {
   categories: string[];
@@ -59,6 +60,13 @@ export default function MedicineClient({ categories, initialSearch }: Props) {
         <ModalLogin
           onClose={() => setIsModalLogin(false)}
           openModalRegister={() => setIsModalRegister(true)}
+        />
+      )}
+
+      {isModalRegister && (
+        <ModalRegister
+          onClose={() => setIsModalRegister(false)}
+          openModalLogin={() => setIsModalLogin(true)}
         />
       )}
     </>

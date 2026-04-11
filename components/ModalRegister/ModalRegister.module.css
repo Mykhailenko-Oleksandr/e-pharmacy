@@ -1,0 +1,52 @@
+.title {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 114%;
+  text-align: center;
+  color: #1d1e21;
+
+  margin-bottom: 14px;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  text-align: center;
+  color: #6a6a6f;
+
+  max-width: 262px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+
+.inputsBox {
+  margin-bottom: 25px;
+}
+
+.bottomBtn {
+  display: block;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0 auto;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: rgba(29, 30, 33, 0.4);
+
+  transition: color 300ms ease;
+
+  &:hover,
+  &:focus {
+    color: rgba(29, 30, 33, 0.8);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .description {
+    font-size: 16px;
+    line-height: 125%;
+  }
+}

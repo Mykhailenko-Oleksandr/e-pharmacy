@@ -9,12 +9,14 @@ interface Props {
   categories: string[];
   changeCategory: (category: string) => void;
   changeSearch: (search: string) => void;
+  resetDiscount: () => void;
 }
 
 export default function Filter({
   categories,
   changeCategory,
   changeSearch,
+  resetDiscount,
 }: Props) {
   const [category, setCategory] = useState("");
   const [search, setSearch] = useState("");
@@ -22,6 +24,7 @@ export default function Filter({
   function handleApplyFilters() {
     changeCategory(category);
     changeSearch(search);
+    resetDiscount();
   }
 
   return (

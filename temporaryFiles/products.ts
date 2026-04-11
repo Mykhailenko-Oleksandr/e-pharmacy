@@ -1,6 +1,6 @@
 export const PRODUCTS = [
   {
-    id: "0",
+    _id: "0",
     photo: "https://i.ibb.co/bLKP624/5-15-1000x1000-min.jpg",
     name: "Aspirin",
     suppliers: "Square",
@@ -9,7 +9,7 @@ export const PRODUCTS = [
     category: "Medicine",
   },
   {
-    id: "1",
+    _id: "1",
     photo: "https://i.ibb.co/Hg0zZkQ/shop-4-7-1000x1000-min.jpg",
     name: "Paracetamol",
     suppliers: "Acme",
@@ -18,7 +18,7 @@ export const PRODUCTS = [
     category: "Heart",
   },
   {
-    id: "2",
+    _id: "2",
     photo: "https://i.ibb.co/02WmJdc/5-19-1000x1000-min.jpg",
     name: "Ibuprofen",
     suppliers: "Beximco",
@@ -27,7 +27,7 @@ export const PRODUCTS = [
     category: "Head",
   },
   {
-    id: "3",
+    _id: "3",
     photo: "https://i.ibb.co/GxTVSVk/shop-4-9-1000x1000-min.jpg",
     name: "Acetaminophen",
     suppliers: "ACI",
@@ -36,7 +36,7 @@ export const PRODUCTS = [
     category: "Hand",
   },
   {
-    id: "4",
+    _id: "4",
     photo: "https://i.ibb.co/X330FTj/shop-4-10-1000x1000-min.jpg",
     name: "Naproxen",
     suppliers: "Uniliver",
@@ -45,7 +45,7 @@ export const PRODUCTS = [
     category: "Leg",
   },
   {
-    id: "5",
+    _id: "5",
     photo: "https://i.ibb.co/bLKP624/5-15-1000x1000-min.jpg",
     name: "Amoxicillin",
     suppliers: "Square",
@@ -54,7 +54,7 @@ export const PRODUCTS = [
     category: "Medicine",
   },
   {
-    id: "6",
+    _id: "6",
     photo: "https://i.ibb.co/Hg0zZkQ/shop-4-7-1000x1000-min.jpg",
     name: "Lisinopril",
     suppliers: "Acme",
@@ -63,7 +63,7 @@ export const PRODUCTS = [
     category: "Heart",
   },
   {
-    id: "7",
+    _id: "7",
     photo: "https://i.ibb.co/02WmJdc/5-19-1000x1000-min.jpg",
     name: "Ciprofloxacin",
     suppliers: "Beximco",
@@ -72,16 +72,16 @@ export const PRODUCTS = [
     category: "Head",
   },
   {
-    id: "8",
+    _id: "8",
     photo: "https://i.ibb.co/GxTVSVk/shop-4-9-1000x1000-min.jpg",
-    name: "Hydrochlorothiazide",
+    name: "Hydrochlorothiaz_ide",
     suppliers: "ACI",
     stock: "22",
     price: "24.76",
     category: "Hand",
   },
   {
-    id: "9",
+    _id: "9",
     photo: "https://i.ibb.co/X330FTj/shop-4-10-1000x1000-min.jpg",
     name: "Prednisone",
     suppliers: "Uniliver",

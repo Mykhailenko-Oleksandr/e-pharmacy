@@ -3,9 +3,10 @@
 import Filter from "@/components/Filter/Filter";
 import css from "./Medicine.module.css";
 import { useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { PRODUCTS } from "@/temporaryFiles/products";
+import ProductsList from "@/components/ProductsList/ProductsList";
 
 interface Props {
   categories: string[];
@@ -14,6 +15,7 @@ interface Props {
 
 export default function MedicineClient({ categories, initialSearch }: Props) {
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   const [category, setCategory] = useState("");
   const [search, setSearch] = useState("");
@@ -30,7 +32,15 @@ export default function MedicineClient({ categories, initialSearch }: Props) {
           categories={categories}
           changeCategory={setCategory}
           changeSearch={setSearch}
+          resetDiscount={() => {
+            setDiscount("");
+            const params = new URLSearchParams(searchParams.toString());
+            params.delete("discount");
+            router.replace(`/medicine?${params.toString()}`);
+          }}
         />
+
+        <ProductsList products={PRODUCTS}/>
       </div>
     </section>
   );

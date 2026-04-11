@@ -8,6 +8,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { PRODUCTS } from "@/temporaryFiles/products";
 import ProductsList from "@/components/ProductsList/ProductsList";
 import Pagination from "@/components/Pagination/Pagination";
+import ModalLogin from "@/components/ModalLogin/ModalLogin";
 
 interface Props {
   categories: string[];
@@ -45,13 +46,21 @@ export default function MedicineClient({ categories, initialSearch }: Props) {
             }}
           />
 
-          <ProductsList products={PRODUCTS} />
+          <ProductsList
+            products={PRODUCTS}
+            openModalLogin={() => setIsModalLogin(true)}
+          />
 
           <Pagination totalPages={5} page={page} updatePage={setPage} />
         </div>
       </section>
 
-      {/* {isModalRegister &&} */}
+      {isModalLogin && (
+        <ModalLogin
+          onClose={() => setIsModalLogin(false)}
+          openModalRegister={() => setIsModalRegister(true)}
+        />
+      )}
     </>
   );
 }

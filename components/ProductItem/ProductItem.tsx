@@ -5,11 +5,13 @@ import Link from "next/link";
 
 interface Props {
   product: Product;
+  openModalLogin: () => void;
 }
 
-export default function ProductItem({ product }: Props) {
+export default function ProductItem({ product, openModalLogin }: Props) {
   function addProduct() {
     console.log(product._id);
+    openModalLogin();
   }
 
   return (

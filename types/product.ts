@@ -1,3 +1,6 @@
+import { Description } from "./description";
+import { Review } from "./review";
+
 export interface Product {
   _id: string;
   photo: string;
@@ -7,4 +10,9 @@ export interface Product {
   price: string;
   category: string;
   discount?: string;
+}
+
+export interface ProductFull extends Product {
+  reviews: Review[];
+  description: Description[];
 }

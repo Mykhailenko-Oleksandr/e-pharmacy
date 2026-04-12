@@ -1,0 +1,206 @@
+.section {
+  padding: 37px 0 80px;
+}
+
+.topBox {
+  margin-bottom: 28px;
+}
+
+.imgBox {
+  position: relative;
+  width: 100%;
+  height: 337px;
+  border: 1px solid rgba(89, 177, 122, 0.6);
+  border-radius: 27px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.infoProductBox {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 8px;
+}
+
+.namePriceBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.name,
+.price {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  color: #1d1e21;
+}
+
+.name {
+  max-width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.brand {
+  font-size: 12px;
+  line-height: 150%;
+  color: rgba(29, 30, 33, 0.6);
+  margin-bottom: 32px;
+}
+
+.addProductBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.numberOrderBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  border-radius: 60px;
+  padding: 11px 17px;
+}
+
+.numberOrder {
+  line-height: 125%;
+  color: #1d1e21;
+}
+
+.countButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background-color: transparent;
+  padding: 0;
+
+  & svg {
+    stroke: #59b17a;
+    transition: stroke 300ms ease;
+  }
+
+  &:hover svg,
+  &:focus svg {
+    stroke: #3f945f;
+  }
+
+  &:disabled svg {
+    stroke: rgba(89, 177, 122, 0.5);
+    cursor: auto;
+  }
+}
+
+.addToCart {
+  border: none;
+  border-radius: 60px;
+  padding: 13px 32px;
+  background-color: #59b17a;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #fff;
+
+  transition: background-color 300ms ease;
+
+  &:hover,
+  &:focus {
+    background-color: #3f945f;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .section {
+    padding: 34px 0 120px;
+  }
+
+  .topBox {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .imgBox {
+    flex-shrink: 0;
+    width: 364px;
+    height: 284px;
+    margin-bottom: unset;
+  }
+
+  .infoProductBox {
+    padding: 32px;
+    margin-bottom: unset;
+  }
+
+  .name,
+  .price {
+    font-size: 20px;
+  }
+
+  .name {
+    max-width: 100%;
+  }
+
+  .price {
+    position: absolute;
+    bottom: -82px;
+    left: 0;
+  }
+
+  .brand {
+    margin-bottom: 126px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .section {
+    padding-top: 69px;
+  }
+
+  .container {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+  }
+
+  .topBox {
+    display: block;
+    max-width: 364px;
+    margin-bottom: unset;
+  }
+
+  .imgBox {
+    width: 364px;
+    height: 337px;
+    margin-bottom: 20px;
+  }
+
+  .infoProductBox {
+    padding: 20px;
+  }
+
+  .name {
+    max-width: 70%;
+  }
+
+  .price {
+    position: static;
+  }
+
+  .brand {
+    margin-bottom: 40px;
+  }
+}

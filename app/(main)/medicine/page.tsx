@@ -3,7 +3,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
-import MedicineClient from "./MedicineClient";
+import MedicineClient from "./Medicine.client";
 
 import { CATEGORY } from "@/temporaryFiles/category";
 

@@ -5,7 +5,6 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import SubmitButton from "../SubmitButton/SubmitButton";
 import InputField from "../InputField/InputField";
-import clsx from "clsx";
 
 interface FormData {
   name: string;

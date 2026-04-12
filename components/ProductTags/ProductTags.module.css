@@ -1,0 +1,169 @@
+.box {
+  padding: 20px 20px 40px;
+}
+
+.tagsBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 40px;
+  padding: 8px 25px;
+  background-color: rgba(89, 177, 122, 0.1);
+
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #59b17a;
+
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+
+  &.currentTag {
+    background-color: #59b17a;
+    color: #fff;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #3f945f;
+    color: #fff;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 129%;
+  color: #1d1e21;
+
+  & span {
+    color: #6a6a6f;
+  }
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  border: 1px solid #f1f1f1;
+  border-radius: 20px;
+  padding: 14px 28px;
+  background-color: #fff;
+}
+
+.reviewTopBox {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.nameImgBox {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.imgBox {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatarImg {
+  object-fit: cover;
+}
+
+.nameBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  color: #1d1e21;
+}
+
+.date {
+  font-size: 12px;
+  line-height: 150%;
+  color: rgba(29, 30, 33, 0.6);
+}
+
+.ratingBox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.starIcon {
+  fill: #ffc531;
+}
+
+.rating {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #1d1e21;
+}
+
+.testimonial {
+  font-size: 14px;
+  line-height: 129%;
+  color: #6a6a6f;
+}
+
+@media only screen and (min-width: 768px) {
+  .box {
+    padding: 32px 32px 70px;
+  }
+
+  .tagsBox {
+    margin-bottom: 32px;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .name {
+    font-size: 18px;
+  }
+
+  .testimonial {
+    font-size: 16px;
+    line-height: 150%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .box {
+    padding: 40px 40px 66px;
+  }
+
+  .tagsBox {
+    margin-bottom: 40px;
+  }
+}

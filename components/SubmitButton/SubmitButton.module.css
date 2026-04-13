@@ -18,6 +18,10 @@
   &:focus {
     background-color: #3f945f;
   }
+
+  &.orderBtn {
+    width: 141px;
+  }
 }
 
 @media only screen and (min-width: 768px) {

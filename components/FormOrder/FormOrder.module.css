@@ -1,0 +1,155 @@
+.form {
+  width: 100%;
+  padding: 20px 20px 40px;
+}
+
+.fieldset {
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(29, 30, 33, 0.1);
+  margin-bottom: 40px;
+}
+
+.legend {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  color: #1d1e21;
+  margin-bottom: 12px;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 129%;
+  color: #6a6a6f;
+  margin-bottom: 20px;
+
+  &.first {
+    margin-bottom: 40px;
+  }
+}
+
+.inputsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inputLabel {
+  display: block;
+  margin-left: 18px;
+  margin-bottom: 8px;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 129%;
+  color: #1d1e21;
+}
+
+.radioList {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.labelRadio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+.radioBtn {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.customRadio {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(18, 20, 23, 0.2);
+  flex-shrink: 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #59b17a;
+    display: none;
+  }
+}
+
+.radioBtn:checked + .customRadio {
+  border-color: #59b17a;
+
+  &::after {
+    display: block;
+  }
+}
+
+.totalBox {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #e7f1ed;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.totalText {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  color: #1d1e21;
+}
+
+@media only screen and (min-width: 768px) {
+  .form {
+    padding: 40px 78px;
+  }
+
+  .legend {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 125%;
+  }
+
+  .inputsList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px 14px;
+  }
+
+  .inputsItem {
+    width: 260px;
+  }
+
+  .totalText {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .form {
+    width: 628px;
+    padding: 40px;
+  }
+}

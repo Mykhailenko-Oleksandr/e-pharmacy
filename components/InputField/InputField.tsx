@@ -3,7 +3,7 @@ import clsx from "clsx";
 import css from "./InputField.module.css";
 
 interface InputFieldProps {
-  name: string;
+  id?: string;
   type?: string;
   placeholder: string;
   error?: FieldError;
@@ -11,6 +11,7 @@ interface InputFieldProps {
 }
 
 export default function InputField({
+  id,
   type = "text",
   placeholder,
   error,
@@ -30,6 +31,7 @@ export default function InputField({
         className={clsx(css.input, error && css.inputError)}
         placeholder={placeholder}
         type={type}
+        id={id}
         {...props}
       />
       {error && <span className={css.errorMessage}>{error.message}</span>}

@@ -13,9 +13,19 @@
   justify-content: space-between;
 }
 
+.rightBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 @media only screen and (min-width: 768px) {
   .header {
     padding-top: 28px;
     padding-bottom: 28px;
+  }
+
+  .rightBox {
+    gap: 16px;
   }
 }

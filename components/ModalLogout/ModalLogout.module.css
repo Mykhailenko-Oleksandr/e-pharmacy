@@ -1,0 +1,75 @@
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.btnsBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  padding: 12px;
+  width: 100%;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.03em;
+
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease;
+
+  &.btnYes {
+    background-color: #59b17a;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background-color: #3f945f;
+    }
+
+    &:active {
+      background-color: #59b17a;
+    }
+  }
+
+  &.btnCancel {
+    background-color: transparent;
+    border: 1px solid rgba(89, 177, 122, 0.5);
+    color: #59b17a;
+
+    &:hover,
+    &:focus {
+      border-color: rgba(89, 177, 122, 1);
+    }
+
+    &:active {
+      border-color: rgba(89, 177, 122, 0.5);
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .title {
+    font-size: 24px;
+    line-height: 117%;
+  }
+
+  .btn {
+    padding: 14px;
+    font-size: 16px;
+    line-height: 125%;
+  }
+}

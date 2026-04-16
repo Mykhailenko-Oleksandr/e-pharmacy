@@ -1,3 +1,5 @@
+"use client";
+
 import Modal from "../Modal/Modal";
 import css from "./ModalLogin.module.css";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -6,6 +8,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import SubmitButton from "../SubmitButton/SubmitButton";
 import InputField from "../InputField/InputField";
 import clsx from "clsx";
+import { loginUser } from "@/lib/api/clientApi";
+import { ApiError } from "@/app/api/api";
+import toast from "react-hot-toast";
+import { useAuthStore } from "@/lib/store/authStore";
+import { useRouter } from "next/navigation";
 
 interface FormData {
   email: string;
@@ -31,6 +38,8 @@ interface Props {
 }
 
 export default function ModalLogin({ onClose, openModalRegister }: Props) {
+  const setUser = useAuthStore((state) => state.setUser);
+
   const {
     register,
     handleSubmit,
@@ -40,7 +49,19 @@ export default function ModalLogin({ onClose, openModalRegister }: Props) {
   });
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
-    console.log(data);
+    try {
+      const user = await loginUser(data);
+      setUser(user);
+      onClose();
+    } catch (error: unknown) {
+      const err = error as ApiError;
+
+      toast.error(
+        err.response?.data?.response?.validation?.body?.message ||
+          err.response?.data?.response?.message ||
+          err.message,
+      );
+    }
   };
 
   function handleRegisterBtn() {

@@ -5,6 +5,10 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import SubmitButton from "../SubmitButton/SubmitButton";
 import InputField from "../InputField/InputField";
+import { registerUser } from "@/lib/api/clientApi";
+import { ApiError } from "@/app/api/api";
+import toast from "react-hot-toast";
+import { useAuthStore } from "@/lib/store/authStore";
 
 interface FormData {
   name: string;
@@ -40,6 +44,8 @@ interface Props {
 }
 
 export default function ModalRegister({ onClose, openModalLogin }: Props) {
+  const setUser = useAuthStore((state) => state.setUser);
+
   const {
     register,
     handleSubmit,
@@ -49,7 +55,19 @@ export default function ModalRegister({ onClose, openModalLogin }: Props) {
   });
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
-    console.log(data);
+    try {
+      const user = await registerUser(data);
+      setUser(user);
+      onClose();
+    } catch (error: unknown) {
+      const err = error as ApiError;
+
+      toast.error(
+        err.response?.data?.response?.validation?.body?.message ||
+          err.response?.data?.response?.message ||
+          err.message,
+      );
+    }
   };
 
   function handleLoginBtn() {

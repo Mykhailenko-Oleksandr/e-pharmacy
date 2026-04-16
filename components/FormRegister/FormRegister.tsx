@@ -8,6 +8,11 @@ import SubmitButton from "../SubmitButton/SubmitButton";
 import Link from "next/link";
 import InputField from "../InputField/InputField";
 import clsx from "clsx";
+import { ApiError } from "@/app/api/api";
+import toast from "react-hot-toast";
+import { useAuthStore } from "@/lib/store/authStore";
+import { useRouter } from "next/navigation";
+import { registerUser } from "@/lib/api/clientApi";
 
 interface FormData {
   name: string;
@@ -38,6 +43,9 @@ const schema = yup
   .required();
 
 export default function FormRegister() {
+  const setUser = useAuthStore((state) => state.setUser);
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -47,7 +55,19 @@ export default function FormRegister() {
   });
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
-    console.log(data);
+    try {
+      const user = await registerUser(data);
+      setUser(user);
+      router.replace("/");
+    } catch (error: unknown) {
+      const err = error as ApiError;
+
+      toast.error(
+        err.response?.data?.response?.validation?.body?.message ||
+          err.response?.data?.response?.message ||
+          err.message,
+      );
+    }
   };
 
   return (

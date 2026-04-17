@@ -5,11 +5,13 @@ import css from "./Medicine.module.css";
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { PRODUCTS } from "@/temporaryFiles/products";
 import ProductsList from "@/components/ProductsList/ProductsList";
 import Pagination from "@/components/Pagination/Pagination";
 import ModalLogin from "@/components/ModalLogin/ModalLogin";
 import ModalRegister from "@/components/ModalRegister/ModalRegister";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { getProducts } from "@/lib/api/clientApi";
+import Loader from "@/components/Loader/Loader";
 
 interface Props {
   categories: string[];
@@ -29,6 +31,15 @@ export default function MedicineClient({ categories, initialSearch }: Props) {
   const [isModalLogin, setIsModalLogin] = useState(false);
   const [isModalRegister, setIsModalRegister] = useState(false);
 
+  const { data, isSuccess, isError, isLoading } = useQuery({
+    queryKey: ["products", page, category, search],
+    queryFn: () => getProducts({ page, category, search }),
+    placeholderData: keepPreviousData,
+    refetchOnMount: false,
+  });
+
+  const totalPages = data?.totalPages ?? 0;
+
   return (
     <>
       <section className={css.section}>
@@ -47,12 +58,30 @@ export default function MedicineClient({ categories, initialSearch }: Props) {
             }}
           />
 
-          <ProductsList
-            products={PRODUCTS}
-            openModalLogin={() => setIsModalLogin(true)}
-          />
+          {data && data.products.length > 0 ? (
+            <ProductsList
+              products={data.products}
+              openModalLogin={() => setIsModalLogin(true)}
+            />
+          ) : (
+            <p className={css.textMessage}>Your search returned no results.</p>
+          )}
 
-          <Pagination totalPages={5} page={page} updatePage={setPage} />
+          {isError && (
+            <p className={css.textMessage}>
+              There was an error, please try again...
+            </p>
+          )}
+
+          {isLoading && <Loader />}
+
+          {isSuccess && totalPages > 1 && (
+            <Pagination
+              totalPages={totalPages}
+              page={page}
+              updatePage={setPage}
+            />
+          )}
         </div>
       </section>
 

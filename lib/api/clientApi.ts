@@ -2,6 +2,7 @@ import { User } from "@/types/user";
 import { nextServer } from "./api";
 import { Cart } from "@/types/cart";
 import { Shop } from "@/types/shop";
+import { Product } from "@/types/product";
 
 interface RegisterRequest {
   name: string;
@@ -35,6 +36,21 @@ export interface StoresResponse {
 export interface StoresRequest {
   page?: number;
   perPage?: number;
+}
+
+export interface ProductsResponse {
+  page: number;
+  perPage: number;
+  totalProducts: number;
+  totalPages: number;
+  products: Product[];
+}
+
+export interface ProductsRequest {
+  page?: number;
+  perPage?: number;
+  search?: string;
+  category?: string;
 }
 
 // Auth
@@ -82,6 +98,25 @@ export async function getStores({ page, perPage }: StoresRequest) {
     params: {
       page,
       perPage,
+    },
+  });
+  return res.data;
+}
+
+// Products
+
+export async function getProducts({
+  page,
+  perPage,
+  search,
+  category,
+}: ProductsRequest) {
+  const res = await nextServer.get<ProductsResponse>("/products", {
+    params: {
+      page,
+      perPage,
+      search,
+      category,
     },
   });
   return res.data;

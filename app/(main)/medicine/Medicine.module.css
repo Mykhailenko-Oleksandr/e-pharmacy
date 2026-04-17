@@ -10,6 +10,13 @@
   margin-bottom: 40px;
 }
 
+.textMessage {
+  font-size: 14px;
+  line-height: 129%;
+  text-align: center;
+  color: #93939a;
+}
+
 @media only screen and (min-width: 768px) {
   .section {
     padding: 52px 0 120px;

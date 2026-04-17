@@ -1,8 +1,11 @@
 import { cookies } from "next/headers";
 import { nextServer } from "./api";
-import { CheckSessionRequest } from "./clientApi";
+import {
+  CheckSessionRequest,
+  StoresRequest,
+  StoresResponse,
+} from "./clientApi";
 import { Review } from "@/types/review";
-import { Shop } from "@/types/shop";
 
 interface ReviewsResponse {
   page: number;
@@ -10,19 +13,6 @@ interface ReviewsResponse {
   totalReviews: number;
   totalPages: number;
   reviews: Review[];
-}
-
-interface StoresResponse {
-  page: number;
-  perPage: number;
-  totalStores: number;
-  totalPages: number;
-  stores: Shop[];
-}
-
-interface StoresRequest {
-  page?: number;
-  perPage?: number;
 }
 
 export async function checkSession() {

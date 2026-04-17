@@ -1,21 +1,29 @@
-import clsx from "clsx";
-import css from "./MedicineStore.module.css";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import MedicineStoreClient from "./MedicineStore.client";
+import { getStores } from "@/lib/api/serverApi";
 
-import { STORES } from "@/temporaryFiles/stores";
-import MedicineStoresList from "@/components/MedicineStoresList/MedicineStoresList";
+const perPage = 9;
 
-export default function MedicineStore() {
+export default async function MedicineStore() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchInfiniteQuery({
+    queryKey: ["stores", perPage],
+    queryFn: ({ pageParam = 1 }) =>
+      getStores({
+        page: pageParam,
+        perPage,
+      }),
+    initialPageParam: 1,
+  });
+
   return (
-    <section className={css.section}>
-      <div className={clsx("container", css.container)}>
-        <h2 className={css.title}>Medicine store</h2>
-
-        {STORES && STORES.length > 0 ? (
-          <MedicineStoresList stores={STORES} />
-        ) : (
-          <p className={css.noStores}>No medicine stores found in your area</p>
-        )}
-      </div>
-    </section>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <MedicineStoreClient />
+    </HydrationBoundary>
   );
 }

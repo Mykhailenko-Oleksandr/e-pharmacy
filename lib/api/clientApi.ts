@@ -1,6 +1,7 @@
 import { User } from "@/types/user";
 import { nextServer } from "./api";
 import { Cart } from "@/types/cart";
+import { Shop } from "@/types/shop";
 
 interface RegisterRequest {
   name: string;
@@ -21,6 +22,19 @@ export interface CheckSessionRequest {
 interface UpdateCartRequest {
   productId: string;
   quantity?: number;
+}
+
+export interface StoresResponse {
+  page: number;
+  perPage: number;
+  totalStores: number;
+  totalPages: number;
+  stores: Shop[];
+}
+
+export interface StoresRequest {
+  page?: number;
+  perPage?: number;
 }
 
 // Auth
@@ -58,5 +72,17 @@ export async function getCart() {
 
 export async function updateCart(body: UpdateCartRequest) {
   const res = await nextServer.put<Cart[]>("/cart/update", body);
+  return res.data;
+}
+
+// Stores
+
+export async function getStores({ page, perPage }: StoresRequest) {
+  const res = await nextServer.get<StoresResponse>("/stores", {
+    params: {
+      page,
+      perPage,
+    },
+  });
   return res.data;
 }

@@ -10,7 +10,6 @@ interface Props {
 }
 
 export default function MedicineStores({ stores }: Props) {
-  console.log("stores", stores);
   return (
     <section className={css.section}>
       <div className={clsx("container", css.container)}>

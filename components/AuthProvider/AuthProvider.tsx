@@ -15,7 +15,6 @@ export default function AuthProvider({ children }: AuthProviderProps) {
     (state) => state.clearIsAuthenticated,
   );
   const setCart = useCartStore((state) => state.setCart);
-  const cart = useCartStore((state) => state.cart);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -29,10 +28,9 @@ export default function AuthProvider({ children }: AuthProviderProps) {
       }
       const cart = await getCart();
       setCart(cart);
-      console.log("cart", cart);
     };
     fetchUser();
-  }, [setUser, clearIsAuthenticated]);
+  }, [setUser, clearIsAuthenticated, setCart]);
 
   return children;
 }

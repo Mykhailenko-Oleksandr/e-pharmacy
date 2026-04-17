@@ -5,17 +5,16 @@ import PharmacyPromo from "@/components/PharmacyPromo/PharmacyPromo";
 import Features from "@/components/Features/Features";
 import Reviews from "@/components/Reviews/Reviews";
 
-import { STORES } from "../../temporaryFiles/stores";
-import { getReviews } from "@/lib/api/serverApi";
+import { getReviews, getStores } from "@/lib/api/serverApi";
 
 export default async function Home() {
   const { reviews } = await getReviews();
-
+  const { stores } = await getStores({ perPage: 6 });
   return (
     <>
       <Hero />
       <PromoBanners />
-      <MedicineStores stores={STORES} />
+      <MedicineStores stores={stores} />
       <PharmacyPromo />
       <Features />
       <Reviews reviews={reviews} />

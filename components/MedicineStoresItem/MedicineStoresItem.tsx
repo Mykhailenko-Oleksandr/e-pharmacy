@@ -33,7 +33,7 @@ export default function MedicineStoresItem({ store }: Props) {
 
         <div className={css.topBox}>
           <h3 className={css.titleItem}>
-            <Ellipsis text={store.shopName} length={12} />
+            <Ellipsis text={store.name} length={12} />
           </h3>
 
           <div className={css.topRightBox}>
@@ -52,7 +52,7 @@ export default function MedicineStoresItem({ store }: Props) {
             <use href="/sprite.svg#location"></use>
           </svg>
           <div className={css.addressBox}>
-            <p className={css.infoText}>{store.streetAddress}</p>
+            <p className={css.infoText}>{store.address}</p>
             <p className={css.infoText}>{store.city}</p>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function MedicineStoresItem({ store }: Props) {
       <BackgroundIconLines isTop />
 
       <h3 className={css.titleItem}>
-        <Ellipsis text={store.shopName} length={24} />
+        <Ellipsis text={store.name} length={24} />
       </h3>
 
       <div className={css.centerBox}>
@@ -78,7 +78,7 @@ export default function MedicineStoresItem({ store }: Props) {
             <use href="/sprite.svg#location"></use>
           </svg>
           <div className={css.addressBox}>
-            <p className={css.infoText}>{store.streetAddress}</p>
+            <p className={css.infoText}>{store.address}</p>
             <p className={css.infoText}>{store.city}</p>
           </div>
         </div>

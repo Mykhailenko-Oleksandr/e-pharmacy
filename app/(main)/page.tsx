@@ -6,9 +6,11 @@ import Features from "@/components/Features/Features";
 import Reviews from "@/components/Reviews/Reviews";
 
 import { STORES } from "../../temporaryFiles/stores";
-import { REVIEWS } from "@/temporaryFiles/reviews";
+import { getReviews } from "@/lib/api/serverApi";
 
-export default function Home() {
+export default async function Home() {
+  const { reviews } = await getReviews();
+
   return (
     <>
       <Hero />
@@ -16,7 +18,7 @@ export default function Home() {
       <MedicineStores stores={STORES} />
       <PharmacyPromo />
       <Features />
-      <Reviews reviews={REVIEWS} />
+      <Reviews reviews={reviews} />
     </>
   );
 }

@@ -18,7 +18,7 @@ export interface CheckSessionRequest {
   success: boolean;
 }
 
-interface updateCartRequest {
+interface UpdateCartRequest {
   productId: string;
   quantity?: number;
 }
@@ -56,7 +56,7 @@ export async function getCart() {
   return res.data;
 }
 
-export async function updateCart(body: updateCartRequest) {
+export async function updateCart(body: UpdateCartRequest) {
   const res = await nextServer.put<Cart[]>("/cart/update", body);
   return res.data;
 }

@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import css from "./UserNavigation.module.css";
 import { User } from "@/types/user";
 import Image from "next/image";
 import clsx from "clsx";
 import LogoutButton from "../LogoutButton/LogoutButton";
+import { useCartStore } from "@/lib/store/cartStore";
 
 interface Props {
   user: User;
@@ -16,6 +19,8 @@ export default function UserNavigation({
   orenLogoutModal,
   homePage,
 }: Props) {
+  const cart = useCartStore((state) => state.cart);
+
   return (
     <div className={css.box}>
       <div className={clsx(css.linksBox, homePage && css.home)}>
@@ -30,7 +35,7 @@ export default function UserNavigation({
             </svg>
           </Link>
 
-          <div className={css.totalCart}>0</div>
+          <div className={css.totalCart}>{cart.length}</div>
         </div>
 
         <Link

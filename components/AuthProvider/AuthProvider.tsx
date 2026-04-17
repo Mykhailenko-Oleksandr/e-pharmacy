@@ -1,7 +1,8 @@
 "use client";
 
-import { checkSession, getMe } from "@/lib/api/clientApi";
+import { checkSession, getCart, getMe } from "@/lib/api/clientApi";
 import { useAuthStore } from "@/lib/store/authStore";
+import { useCartStore } from "@/lib/store/cartStore";
 import { ReactNode, useEffect } from "react";
 
 interface AuthProviderProps {
@@ -13,6 +14,8 @@ export default function AuthProvider({ children }: AuthProviderProps) {
   const clearIsAuthenticated = useAuthStore(
     (state) => state.clearIsAuthenticated,
   );
+  const setCart = useCartStore((state) => state.setCart);
+  const cart = useCartStore((state) => state.cart);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -24,6 +27,9 @@ export default function AuthProvider({ children }: AuthProviderProps) {
       } else {
         clearIsAuthenticated();
       }
+      const cart = await getCart();
+      setCart(cart);
+      console.log("cart", cart);
     };
     fetchUser();
   }, [setUser, clearIsAuthenticated]);

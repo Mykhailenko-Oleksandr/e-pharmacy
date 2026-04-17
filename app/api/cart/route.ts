@@ -1,19 +1,19 @@
 import { NextResponse } from "next/server";
-import { api } from "../../api";
 import { cookies } from "next/headers";
-import { logErrorResponse } from "../../_utils/utils";
 import { isAxiosError } from "axios";
+import { api } from "../api";
+import { logErrorResponse } from "../_utils/utils";
 
 export async function GET() {
   try {
     const cookieStore = await cookies();
 
-    const res = await api.get("/users/me", {
+    const res = await api.get("/cart", {
       headers: {
         Cookie: cookieStore.toString(),
       },
     });
-    return NextResponse.json(res.data, { status: res.status });
+    return NextResponse.json(res.data.items, { status: res.status });
   } catch (error) {
     if (isAxiosError(error)) {
       logErrorResponse(error.response?.data);

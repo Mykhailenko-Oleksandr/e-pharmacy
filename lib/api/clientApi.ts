@@ -51,6 +51,7 @@ export interface ProductsRequest {
   perPage?: number;
   search?: string;
   category?: string;
+  discount?: number | string;
 }
 
 // Auth
@@ -110,6 +111,7 @@ export async function getProducts({
   perPage,
   search,
   category,
+  discount,
 }: ProductsRequest) {
   const res = await nextServer.get<ProductsResponse>("/products", {
     params: {
@@ -117,6 +119,7 @@ export async function getProducts({
       perPage,
       search,
       category,
+      discount,
     },
   });
   return res.data;

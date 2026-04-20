@@ -23,8 +23,8 @@ export default async function Medicine({ searchParams }: Props) {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ["products", page, category, search],
-    queryFn: () => getProducts({ page, category, search }),
+    queryKey: ["products", page, category, search, discount],
+    queryFn: () => getProducts({ page, category, search, discount }),
   });
 
   return (

@@ -11,6 +11,7 @@ export async function GET(request: NextRequest) {
     const perPage = Number(searchParams.get("perPage")) || 12;
     const search = searchParams.get("search") || "";
     const category = searchParams.get("category") || "";
+    const discount = Number(searchParams.get("discount")) || "";
 
     const cookieStore = await cookies();
 
@@ -23,6 +24,7 @@ export async function GET(request: NextRequest) {
         perPage,
         ...(search !== "" && { search }),
         ...(category !== "" && { category }),
+        ...(discount !== "" && { discount }),
       },
     });
     return NextResponse.json(res.data, { status: res.status });

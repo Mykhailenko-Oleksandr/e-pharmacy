@@ -62,6 +62,7 @@ export async function getProducts({
   perPage,
   search,
   category,
+  discount,
 }: ProductsRequest) {
   const cookieStore = await cookies();
 
@@ -71,6 +72,7 @@ export async function getProducts({
       perPage,
       search,
       category,
+      discount,
     },
     headers: {
       Cookie: cookieStore.toString(),

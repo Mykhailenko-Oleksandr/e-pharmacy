@@ -32,8 +32,8 @@ export default function MedicineClient({ categories, initialSearch }: Props) {
   const [isModalRegister, setIsModalRegister] = useState(false);
 
   const { data, isSuccess, isError, isLoading } = useQuery({
-    queryKey: ["products", page, category, search],
-    queryFn: () => getProducts({ page, category, search }),
+    queryKey: ["products", page, category, search, discount],
+    queryFn: () => getProducts({ page, category, search, discount }),
     placeholderData: keepPreviousData,
     refetchOnMount: false,
   });

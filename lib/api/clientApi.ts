@@ -92,6 +92,11 @@ export async function updateCart(body: UpdateCartRequest) {
   return res.data;
 }
 
+export async function removeCart(id: string) {
+  const res = await nextServer.delete<Cart[]>(`/cart/remove/${id}`);
+  return res.data;
+}
+
 // Stores
 
 export async function getStores({ page, perPage }: StoresRequest) {

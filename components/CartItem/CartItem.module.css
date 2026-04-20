@@ -1,0 +1,176 @@
+.item {
+  width: 100%;
+
+  display: flex;
+  gap: 12px;
+
+  &:not(:last-child) {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(29, 30, 33, 0.1);
+  }
+}
+
+.imgBox {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border: 1px solid #f1f1f1;
+  border-radius: 27px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.infoBox {
+  width: 100%;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  color: #1d1e21;
+  margin-bottom: 8px;
+}
+
+.suppliers {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 117%;
+  color: #6a6a6f;
+}
+
+.price {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 117%;
+  color: #1d1e21;
+}
+
+.titlePriceBox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.addProductBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.numberOrderBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  border-radius: 60px;
+  padding: 5px 13px;
+}
+
+.numberOrder {
+  font-size: 14px;
+  line-height: 143%;
+  color: #1d1e21;
+}
+
+.countButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background-color: transparent;
+  padding: 0;
+
+  & svg {
+    stroke: #59b17a;
+    transition: stroke 300ms ease;
+  }
+
+  &:hover svg,
+  &:focus svg {
+    stroke: #3f945f;
+  }
+
+  &:disabled svg {
+    stroke: rgba(89, 177, 122, 0.5);
+    cursor: auto;
+  }
+}
+
+.removeBtn {
+  border: none;
+  border-radius: 40px;
+  padding: 8px 12px;
+
+  background-color: rgba(232, 80, 80, 0.1);
+
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #e85050;
+
+  transition: background-color 300ms ease;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(232, 80, 80, 0.4);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .item {
+    gap: 20px;
+  }
+
+  .imgBox {
+    width: 122px;
+    height: 133px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .suppliers {
+    font-size: 14px;
+    line-height: 129%;
+    max-width: 218px;
+  }
+
+  .price {
+    font-size: 14px;
+    line-height: 129%;
+  }
+
+  .titlePriceBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 38px;
+  }
+
+  .numberOrderBox {
+    padding: 11px 17px;
+  }
+
+  .numberOrder {
+    font-size: 16px;
+    line-height: 125%;
+  }
+
+  .countButton svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+}

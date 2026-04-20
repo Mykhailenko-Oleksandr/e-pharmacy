@@ -1,13 +1,16 @@
-import FormOrder from "@/components/FormOrder/FormOrder";
-import css from "./Cart.module.css";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import CartClient from "./Cart.client";
 
 export default function Cart() {
+  const queryClient = new QueryClient();
+
   return (
-    <section className={css.section}>
-      <div className="container">
-        <h2 className={css.title}>Cart</h2>
-        <FormOrder />
-      </div>
-    </section>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <CartClient />
+    </HydrationBoundary>
   );
 }

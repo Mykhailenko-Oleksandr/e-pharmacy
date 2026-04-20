@@ -28,7 +28,6 @@ export default function AuthProvider({ children }: AuthProviderProps) {
       }
       const cart = await getCart();
       setCart(cart);
-      console.log("cart", cart);
     };
     fetchUser();
   }, [setUser, clearIsAuthenticated, setCart]);

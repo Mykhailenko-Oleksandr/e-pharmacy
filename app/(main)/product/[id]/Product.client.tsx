@@ -99,6 +99,7 @@ export default function ProductClient({ id }: Props) {
                           setNumberOrder(Math.max(1, numberOrder - 1))
                         }
                         disabled={numberOrder === 1}
+                        aria-label="Reduce the quantity of goods"
                         className={css.countButton}
                       >
                         <svg width={20} height={20}>
@@ -112,6 +113,7 @@ export default function ProductClient({ id }: Props) {
                         type="button"
                         onClick={() => setNumberOrder(numberOrder + 1)}
                         disabled={numberOrder === Number(data.stock)}
+                        aria-label="Increase the quantity of goods"
                         className={css.countButton}
                       >
                         <svg width={20} height={20}>

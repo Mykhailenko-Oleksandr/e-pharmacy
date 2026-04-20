@@ -8,6 +8,7 @@ import {
   StoresResponse,
 } from "./clientApi";
 import { Review } from "@/types/review";
+import { ProductFull } from "@/types/product";
 
 interface ReviewsResponse {
   page: number;
@@ -74,6 +75,17 @@ export async function getProducts({
       category,
       discount,
     },
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
+  return res.data;
+}
+
+export async function getProductById(id: string) {
+  const cookieStore = await cookies();
+
+  const res = await nextServer.get<ProductFull>(`/products/${id}`, {
     headers: {
       Cookie: cookieStore.toString(),
     },

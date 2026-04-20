@@ -2,7 +2,7 @@ import { User } from "@/types/user";
 import { nextServer } from "./api";
 import { Cart } from "@/types/cart";
 import { Shop } from "@/types/shop";
-import { Product } from "@/types/product";
+import { Product, ProductFull } from "@/types/product";
 
 interface RegisterRequest {
   name: string;
@@ -122,5 +122,10 @@ export async function getProducts({
       discount,
     },
   });
+  return res.data;
+}
+
+export async function getProductById(id: string) {
+  const res = await nextServer.get<ProductFull>(`/products/${id}`);
   return res.data;
 }

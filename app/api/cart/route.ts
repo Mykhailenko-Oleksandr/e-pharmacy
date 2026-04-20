@@ -13,7 +13,7 @@ export async function GET() {
         Cookie: cookieStore.toString(),
       },
     });
-    return NextResponse.json(res.data.items, { status: res.status });
+    return NextResponse.json(res.data, { status: res.status });
   } catch (error) {
     if (isAxiosError(error)) {
       logErrorResponse(error.response?.data);

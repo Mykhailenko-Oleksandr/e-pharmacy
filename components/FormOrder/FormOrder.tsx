@@ -7,6 +7,10 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import SubmitButton from "../SubmitButton/SubmitButton";
 import InputField from "../InputField/InputField";
+import { orderCart } from "@/lib/api/clientApi";
+import { ApiError } from "@/app/api/api";
+import toast from "react-hot-toast";
+import { useCartStore } from "@/lib/store/cartStore";
 
 interface FormData {
   name: string;
@@ -43,16 +47,34 @@ interface Props {
 }
 
 export default function FormOrder({ totalPrice }: Props) {
+  const clearCart = useCartStore((state) => state.clearCart);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
-    console.log(data);
+    try {
+      const order = await orderCart(data);
+      clearCart();
+      console.log(order);
+      toast.success(
+        "Your order has been placed successfully! Our team will contact you soon.",
+      );
+      reset();
+    } catch (error: unknown) {
+      const err = error as ApiError;
+      toast.error(
+        err.response?.data?.response?.validation?.body?.message ||
+          err.response?.data?.response?.message ||
+          err.message,
+      );
+    }
   };
 
   return (

@@ -3,6 +3,7 @@ import { nextServer } from "./api";
 import { Cart } from "@/types/cart";
 import { Shop } from "@/types/shop";
 import { Product, ProductFull } from "@/types/product";
+import { Order } from "@/types/order";
 
 interface RegisterRequest {
   name: string;
@@ -54,6 +55,14 @@ export interface ProductsRequest {
   discount?: number | string;
 }
 
+interface OrderRequest {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  payment: "cash" | "bank";
+}
+
 // Auth
 
 export async function registerUser(data: RegisterRequest) {
@@ -94,6 +103,11 @@ export async function updateCart(body: UpdateCartRequest) {
 
 export async function removeCart(id: string) {
   const res = await nextServer.delete<Cart[]>(`/cart/remove/${id}`);
+  return res.data;
+}
+
+export async function orderCart(body: OrderRequest) {
+  const res = await nextServer.post<Order>("/cart/checkout", body);
   return res.data;
 }
 

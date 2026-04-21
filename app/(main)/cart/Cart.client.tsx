@@ -7,7 +7,7 @@ import { useCartStore } from "@/lib/store/cartStore";
 import { useState } from "react";
 
 export default function CartClient() {
-  const { cart, clearCart } = useCartStore();
+  const cart = useCartStore((state) => state.cart);
   const [totalPrice, setTotalPrice] = useState(0);
 
   return (

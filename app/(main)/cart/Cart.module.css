@@ -40,4 +40,9 @@
     display: flex;
     gap: 96px;
   }
+
+  .textMessage {
+    margin: 0 auto;
+    margin-top: 40px;
+  }
 }

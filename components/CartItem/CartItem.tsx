@@ -3,8 +3,8 @@
 import { Cart } from "@/types/cart";
 import css from "./CartItem.module.css";
 import Image from "next/image";
-import { useState } from "react";
-import { removeCart } from "@/lib/api/clientApi";
+import { useEffect, useRef, useState } from "react";
+import { removeCart, updateCart } from "@/lib/api/clientApi";
 import toast from "react-hot-toast";
 import { ApiError } from "@/app/api/api";
 import { useCartStore } from "@/lib/store/cartStore";
@@ -16,16 +16,17 @@ interface Props {
 export default function CartItem({ product }: Props) {
   const [numberOrder, setNumberOrder] = useState(product.quantity);
   const setCart = useCartStore((state) => state.setCart);
+  const setQuantity = useCartStore((state) => state.setQuantity);
+  const timeoutId = useRef<NodeJS.Timeout | null>(null);
+  const prevQtyRef = useRef(product.quantity);
 
   async function removeProduct() {
     try {
       const cart = await removeCart(product.productId._id);
       setCart(cart);
-
       toast.success("Product deleted");
     } catch (error: unknown) {
       const err = error as ApiError;
-
       toast.error(
         err.response?.data?.response?.validation?.body?.message ||
           err.response?.data?.response?.message ||
@@ -33,6 +34,34 @@ export default function CartItem({ product }: Props) {
       );
     }
   }
+
+  useEffect(() => {
+    setQuantity(numberOrder, product.productId._id);
+
+    if (timeoutId.current) clearTimeout(timeoutId.current);
+
+    timeoutId.current = setTimeout(async () => {
+      try {
+        await updateCart({
+          productId: product.productId._id,
+          quantity: numberOrder,
+        });
+
+        prevQtyRef.current = numberOrder;
+      } catch (error: unknown) {
+        const err = error as ApiError;
+
+        setQuantity(prevQtyRef.current, product.productId._id);
+        setNumberOrder(prevQtyRef.current);
+
+        toast.error(
+          err.response?.data?.response?.validation?.body?.message ||
+            err.response?.data?.response?.message ||
+            err.message,
+        );
+      }
+    }, 1000);
+  }, [numberOrder, setQuantity, product.productId._id]);
 
   return (
     <li className={css.item}>

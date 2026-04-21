@@ -38,7 +38,11 @@ const schema = yup
   })
   .required();
 
-export default function FormOrder() {
+interface Props {
+  totalPrice: number;
+}
+
+export default function FormOrder({ totalPrice }: Props) {
   const {
     register,
     handleSubmit,
@@ -150,7 +154,7 @@ export default function FormOrder() {
       </p>
       <div className={css.totalBox}>
         <p className={css.totalText}>Total:</p>
-        <p className={css.totalText}>&#2547; 333.33</p>
+        <p className={css.totalText}>&#2547; {totalPrice.toFixed(2)}</p>
       </div>
 
       <SubmitButton order text="Place order" />

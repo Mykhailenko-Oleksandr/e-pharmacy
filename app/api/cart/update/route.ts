@@ -15,7 +15,6 @@ export async function PUT(request: NextRequest) {
         Cookie: cookieStore.toString(),
       },
     });
-    console.log("res", res);
     return NextResponse.json(res.data, { status: res.status });
   } catch (error) {
     if (isAxiosError(error)) {

@@ -45,7 +45,6 @@ export default function MedicineStoreClient() {
     });
 
   const stores: Shop[] = data?.pages.flatMap((page) => page.stores) ?? [];
-  console.log("stores", data);
 
   const handleLoadMore = () => {
     const currentScrollPosition = window.pageYOffset;

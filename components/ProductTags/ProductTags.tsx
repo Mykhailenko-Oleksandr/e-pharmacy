@@ -125,10 +125,12 @@ export default function ProductTags({ reviews, description }: Props) {
                         <use href="/sprite.svg#star"></use>
                       </svg>
                     ) : (
-                      <StarsRating rating={review.rating} />
+                      <StarsRating rating={review.rating ? review.rating : 0} />
                     )}
 
-                    <p className={css.rating}>{Math.floor(review.rating)}</p>
+                    <p className={css.rating}>
+                      {Math.floor(review.rating ? review.rating : 0)}
+                    </p>
                   </div>
                 </div>
                 <p className={css.testimonial}>{review.testimonial}</p>

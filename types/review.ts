@@ -3,5 +3,7 @@ export interface Review {
   name: string;
   testimonial: string;
   avatar?: string;
+  rating?: number;
+
   createdAt: string;
 }

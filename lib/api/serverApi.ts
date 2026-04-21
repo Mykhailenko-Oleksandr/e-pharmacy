@@ -92,3 +92,14 @@ export async function getProductById(id: string) {
   });
   return res.data;
 }
+
+export async function getCategories() {
+  const cookieStore = await cookies();
+
+  const res = await nextServer.get<string[]>(`/category`, {
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
+  return res.data;
+}

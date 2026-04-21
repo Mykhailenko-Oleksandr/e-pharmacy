@@ -4,7 +4,7 @@ import { parse } from "cookie";
 import { checkSession } from "./lib/api/serverApi";
 
 const privateRoutes = ["/cart"];
-const authRoutes = ["/auth/login", "/auth/register"];
+const authRoutes = ["/login", "/register"];
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -60,7 +60,7 @@ export async function middleware(request: NextRequest) {
     }
 
     if (isPrivateRoute) {
-      return NextResponse.redirect(new URL("/auth/login", request.url));
+      return NextResponse.redirect(new URL("/login", request.url));
     }
   }
 
@@ -73,5 +73,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/cart", "/auth/login", "/auth/register"],
+  matcher: ["/cart", "/login", "/register"],
 };

@@ -10,6 +10,7 @@ export interface Order {
   products: OrderProduct[];
   price: number;
   status: string;
+  payment: string;
   _id: string;
   order_date: string;
 }

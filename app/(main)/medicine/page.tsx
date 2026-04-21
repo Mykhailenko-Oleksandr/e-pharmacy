@@ -5,8 +5,7 @@ import {
 } from "@tanstack/react-query";
 import MedicineClient from "./Medicine.client";
 
-import { CATEGORY } from "@/temporaryFiles/category";
-import { getProducts } from "@/lib/api/serverApi";
+import { getCategories, getProducts } from "@/lib/api/serverApi";
 
 interface Props {
   searchParams: Promise<{ discount?: string }>;
@@ -22,6 +21,8 @@ export default async function Medicine({ searchParams }: Props) {
 
   const queryClient = new QueryClient();
 
+  const categories = await getCategories();
+
   await queryClient.prefetchQuery({
     queryKey: ["products", page, category, search, discount],
     queryFn: () => getProducts({ page, category, search, discount }),
@@ -29,7 +30,7 @@ export default async function Medicine({ searchParams }: Props) {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <MedicineClient categories={CATEGORY} initialSearch={discount} />
+      <MedicineClient categories={categories} initialSearch={discount} />
     </HydrationBoundary>
   );
 }

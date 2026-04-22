@@ -4,8 +4,20 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import MedicineClient from "./Medicine.client";
-
 import { getCategories, getProducts } from "@/lib/api/serverApi";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Medicine",
+  description:
+    "Browse a wide range of medicines and healthcare products offered by multiple pharmacies in one place. Compare options, check availability, and order online with fast delivery.",
+  openGraph: {
+    title: "Medicine – E-Pharmacy Marketplace",
+    description:
+      "Discover medicines, supplements, and healthcare essentials from different pharmacies. Shop securely and conveniently with E-Pharmacy.",
+    url: "https://e-pharmacy-alpha.vercel.app/medicine",
+  },
+};
 
 interface Props {
   searchParams: Promise<{ discount?: string }>;

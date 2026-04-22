@@ -16,13 +16,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "",
-  description: "",
+  title: "E-Pharmacy",
+  description:
+    "E-Pharmacy is a digital marketplace where multiple pharmacies offer medicines, vitamins, and health products. Compare offers, order online, and enjoy fast delivery.",
   openGraph: {
-    title: "",
-    description: "",
-    url: "https://",
-    images: [{ url: "" }],
+    title: "E-Pharmacy Marketplace – Online Pharmacies in One Place",
+    description:
+      "Discover a wide range of medicines, supplements, and healthcare products from different pharmacies. Shop conveniently and securely with E-Pharmacy.",
+    url: "https://e-pharmacy-alpha.vercel.app/",
+    images: [
+      {
+        url: "https://e-pharmacy-alpha.vercel.app/hero.png",
+        alt: "E-Pharmacy Marketplace",
+      },
+    ],
   },
 };
 

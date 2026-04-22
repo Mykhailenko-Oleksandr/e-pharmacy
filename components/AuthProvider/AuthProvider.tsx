@@ -23,11 +23,12 @@ export default function AuthProvider({ children }: AuthProviderProps) {
       if (isAuthenticated.success) {
         const user = await getMe();
         if (user) setUser(user);
+        const cart = await getCart();
+        setCart(cart);
       } else {
         clearIsAuthenticated();
+        setCart([]);
       }
-      const cart = await getCart();
-      setCart(cart);
     };
     fetchUser();
   }, [setUser, clearIsAuthenticated, setCart]);

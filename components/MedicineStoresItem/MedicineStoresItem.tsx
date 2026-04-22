@@ -28,7 +28,7 @@ export default function MedicineStoresItem({ store }: Props) {
 
   return isMobile ? (
     <li className={css.item}>
-      <Link href={`/shop/${store._id}`} className={css.linkCard}>
+      <Link href="#" className={css.linkCard}>
         <BackgroundIconLines />
 
         <div className={css.topBox}>

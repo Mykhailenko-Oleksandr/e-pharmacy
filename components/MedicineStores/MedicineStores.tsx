@@ -23,7 +23,7 @@ export default function MedicineStores({ stores }: Props) {
             {stores.map((store) => {
               return (
                 <li className={css.item} key={store._id}>
-                  <Link href={`/shop/${store._id}`} className={css.link}>
+                  <Link href="#" className={css.link}>
                     <BackgroundIconLines />
 
                     <div className={css.topBox}>

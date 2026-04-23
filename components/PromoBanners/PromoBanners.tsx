@@ -29,7 +29,7 @@ export default function PromoBanners() {
 
             <div className={clsx(css.bottomBox, css.centerItem)}>
               <p className={css.discountInterest}>100%</p>
-              <Link href="/feature" className={css.link}>
+              <Link href="#" className={css.link}>
                 Read more
               </Link>
             </div>

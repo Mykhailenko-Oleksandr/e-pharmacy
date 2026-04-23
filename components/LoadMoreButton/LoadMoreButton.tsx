@@ -1,4 +1,5 @@
 "use client";
+
 import css from "./LoadMoreButton.module.css";
 
 interface LoadMoreButtonProps {

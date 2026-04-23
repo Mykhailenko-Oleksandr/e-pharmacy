@@ -6,6 +6,7 @@ export default function PromoBanners() {
   return (
     <section className={css.section}>
       <div className={clsx("container", css.container)}>
+        <h2 className="visually-hidden">Promo Banners</h2>
         <ul className={css.list}>
           <li className={css.item}>
             <div className={css.topBox}>

@@ -63,6 +63,8 @@ export default function ProductClient({ id }: Props) {
     <>
       <section className={css.section}>
         <div className={clsx("container", css.container)}>
+          <h2 className="visually-hidden">Details information from product</h2>
+
           {isError && (
             <p className={css.textMessage}>
               There was an error, please try again...

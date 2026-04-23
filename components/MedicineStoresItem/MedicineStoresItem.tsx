@@ -91,7 +91,7 @@ export default function MedicineStoresItem({ store }: Props) {
       </div>
 
       <div className={css.bottomBox}>
-        <Link href={`/shop/${store._id}`} className={css.link}>
+        <Link href="#" className={css.link}>
           Visit Store
         </Link>
 
